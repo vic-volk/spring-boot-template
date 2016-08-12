@@ -6,8 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import ru.vlk.resource.cloud.api.Customer;
-import ru.vlk.resource.cloud.api.CustomerRepository;
+import ru.vlk.resource.cloud.api.model.Customer;
+import ru.vlk.resource.cloud.api.repository.CustomerRepository;
 
 @SpringBootApplication
 public class Application {

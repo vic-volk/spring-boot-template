@@ -2,7 +2,7 @@ package ru.vlk.resource.cloud.api.jersey;
 
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
-import ru.vlk.resource.cloud.api.SampleResource;
+import ru.vlk.resource.cloud.api.rest.SampleResource;
 
 @Component
 public class JerseyConfig extends ResourceConfig {
