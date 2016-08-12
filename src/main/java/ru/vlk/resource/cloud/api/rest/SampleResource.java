@@ -1,4 +1,4 @@
-package ru.vlk.resource.cloud.api;
+package ru.vlk.resource.cloud.api.rest;
 
 import org.springframework.stereotype.Component;
 

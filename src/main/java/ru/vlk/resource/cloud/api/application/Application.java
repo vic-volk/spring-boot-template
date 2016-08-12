@@ -1,4 +1,4 @@
-package ru.vlk.resource.cloud.api;
+package ru.vlk.resource.cloud.api.application;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import ru.vlk.resource.cloud.api.Customer;
+import ru.vlk.resource.cloud.api.CustomerRepository;
 
 @SpringBootApplication
 public class Application {

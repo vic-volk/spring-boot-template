@@ -1,4 +1,4 @@
-package ru.vlk.resource.cloud.api;
+package ru.vlk.resource.cloud.api.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
