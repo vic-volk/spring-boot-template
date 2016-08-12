@@ -11,6 +11,6 @@ public class SampleResource {
 
     @GET
     public String echo() {
-        return "Hello";
+        return "Hello!";
     }
 }
