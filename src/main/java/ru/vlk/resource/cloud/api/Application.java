@@ -1,7 +1,8 @@
-package ru.vlk.resource.cloud.api.application;
+package ru.vlk.resource.cloud.api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,9 @@ import ru.vlk.resource.cloud.api.repository.CustomerRepository;
 @SpringBootApplication
 public class Application {
 
+	@Autowired
+	private CustomerRepository repository;
+
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
@@ -19,7 +23,7 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner demo(CustomerRepository repository) {
+	public CommandLineRunner demo() {
 		return (args) -> {
 			// save a couple of customers
 			repository.save(new Customer("Jack", "Bauer"));
