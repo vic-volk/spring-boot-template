@@ -7,14 +7,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import ru.vlk.resource.cloud.api.model.Customer;
-import ru.vlk.resource.cloud.api.repository.CustomerRepository;
+import ru.vlk.resource.cloud.api.model.Resource;
+import ru.vlk.resource.cloud.api.repository.ResourceRepository;
 
 @SpringBootApplication
 public class Application {
 
 	@Autowired
-	private CustomerRepository repository;
+	private ResourceRepository repository;
 
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
@@ -26,31 +26,31 @@ public class Application {
 	public CommandLineRunner demo() {
 		return (args) -> {
 			// save a couple of customers
-			repository.save(new Customer("Jack", "Bauer"));
-			repository.save(new Customer("Chloe", "O'Brian"));
-			repository.save(new Customer("Kim", "Bauer"));
-			repository.save(new Customer("David", "Palmer"));
-			repository.save(new Customer("Michelle", "Dessler"));
+			repository.save(new Resource("habrahabr", "https://habrahabr.ru/", "Habr ahabr", "habr"));
+			repository.save(new Resource("chuan shu", "http://chuan-shu.ru/", "Chuan shu", "kung-fu"));
+			repository.save(new Resource("wiki-paragon-start", "http://wiki.paragon-software.com/wiki/know/start",
+					"Wiki start", "wiki"));
+			repository.save(new Resource("wiki-m2m", "http://wiki.paragon-software.com/wiki/m2m", "Wiki m2m", "m2m"));
 
 			// fetch all customers
-			log.info("Customers found with findAll():");
+			log.info("Resource found with findAll():");
 			log.info("-------------------------------");
-			for (Customer customer : repository.findAll()) {
-				log.info(customer.toString());
+			for (Resource resource : repository.findAll()) {
+				log.info(resource.toString());
 			}
             log.info("");
 
-			// fetch an individual customer by ID
-			Customer customer = repository.findOne(1L);
-			log.info("Customer found with findOne(1L):");
+			// fetch an individual resource by ID
+			Resource resource = repository.findOne(1L);
+			log.info("Resource found with findOne(1L):");
 			log.info("--------------------------------");
-			log.info(customer.toString());
+			log.info(resource.toString());
             log.info("");
 
-			// fetch customers by last name
-			log.info("Customer found with findByLastName('Bauer'):");
+			// fetch resource by description
+			log.info("Resource found with findByDescription('Chuan shu'):");
 			log.info("--------------------------------------------");
-			for (Customer bauer : repository.findByLastName("Bauer")) {
+			for (Resource bauer : repository.findByDescription("Chuan shu")) {
 				log.info(bauer.toString());
 			}
             log.info("");
