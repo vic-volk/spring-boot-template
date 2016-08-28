@@ -25,14 +25,11 @@ public class Application {
 	@Bean
 	public CommandLineRunner demo() {
 		return (args) -> {
-			// save a couple of customers
 			repository.save(new Resource("habrahabr", "https://habrahabr.ru/", "Habr ahabr", "habr"));
-			repository.save(new Resource("chuan shu", "http://chuan-shu.ru/", "Chuan shu", "kung-fu"));
 			repository.save(new Resource("wiki-paragon-start", "http://wiki.paragon-software.com/wiki/know/start",
 					"Wiki start", "wiki"));
 			repository.save(new Resource("wiki-m2m", "http://wiki.paragon-software.com/wiki/m2m", "Wiki m2m", "m2m"));
 
-			// fetch all customers
 			log.info("Resource found with findAll():");
 			log.info("-------------------------------");
 			for (Resource resource : repository.findAll()) {
@@ -40,17 +37,15 @@ public class Application {
 			}
             log.info("");
 
-			// fetch an individual resource by ID
 			Resource resource = repository.findOne(1L);
 			log.info("Resource found with findOne(1L):");
 			log.info("--------------------------------");
 			log.info(resource.toString());
             log.info("");
 
-			// fetch resource by description
-			log.info("Resource found with findByDescription('Chuan shu'):");
+			log.info("Resource found with findByDescription('habr'):");
 			log.info("--------------------------------------------");
-			for (Resource bauer : repository.findByDescription("Chuan shu")) {
+			for (Resource bauer : repository.findByDescription("habr")) {
 				log.info(bauer.toString());
 			}
             log.info("");
